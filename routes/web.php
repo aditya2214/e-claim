@@ -16,10 +16,17 @@ Route::get('/', function () {
 });
 Route::get('/logout', function () {
     Auth::logout();
-
     return view('auth.login');
+});
+
+//kehalaman Registrasi Claim
+Route::get('/registrasi_klaim', function () {
+        
+    return view('konten.registrasi_klaim');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/registrasi_klaim/save', 'RegistrationClaimController@store');
+Route::get('/check_claim', 'RegistrationClaimController@check');
